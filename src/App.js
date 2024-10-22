@@ -1,27 +1,18 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import './App.css';
 import Jatekter from './components/Jatekter';
+import { KATTContext } from './context/kattContext';
 
 function App() {
-  const [lista, setLista] = useState([false,false, false, false, false, false, false, false, false]);
-  function katt(index){
-    const segedLista = [...lista]
-    if (segedLista[index]) {
-        segedLista[index] = false
-    }else{
-      segedLista[index] = true
-    }
-    setLista(
-      segedLista
-    )
-  }
+ 
+  const {lista} = useContext(KATTContext)
   return (
     <div className="App">
       <header className="App-header">
         <h1>Light On</h1>
       </header>
       <article>
-        <Jatekter lista={lista} katt={katt}/>
+        <Jatekter lista={lista}/>
       </article>
       <footer>
         <p>Bitó Zalán</p>

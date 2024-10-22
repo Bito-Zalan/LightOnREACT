@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Cella.css"
+import { KATTContext } from '../context/kattContext'
 
 function Cella(props) {
-    function katt(){
-        props.katt(props.index)
+  const {katt} = useContext(KATTContext)
+    function kattintas(){
+        katt(props.index)
     }
 
     let classnev= "valami";
@@ -14,7 +16,7 @@ function Cella(props) {
         classnev = "le"
     }
   return (
-    <div className={classnev} onClick={()=>katt(props.index)}>{props.jel}</div>
+    <div className={classnev} onClick={()=>kattintas()}>{props.jel}</div>
   )
 }
 
